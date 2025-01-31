@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+@layer components {
+  .ios-button {
+    @apply rounded-2xl bg-blue-500 text-white font-semibold py-4 px-6 active:scale-95 transition-transform shadow-sm hover:bg-blue-600;
+  }
+
+  .ios-card {
+    @apply bg-white rounded-3xl shadow-sm p-6 border border-gray-100;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-ticket,
+  .print-ticket * {
+    visibility: visible;
+  }
+  .print-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
